@@ -2,8 +2,9 @@
   --background: hsl(217, 54%, 11%);
   --card-background: hsl(216, 50%, 16%);
   --line-color: hsl(215, 32%, 27%);
-  --main-text: hsl(218, 29%, 69%);
   --white: hsl(0, 0%, 100%);
+  --soft-blue: hsl(215, 51%, 70%);
+  --cyan: hsl(178, 100%, 50%);
 }
 
 *,
@@ -45,7 +46,7 @@ main {
 
 .text-wrapper {
   margin-top: 24px;
-  color: var(--main-text);
+  color: var(--soft-blue);
   border-bottom: 2px solid var(--line-color);
 }
 
@@ -53,6 +54,12 @@ main {
   color: var(--white);
   font-size: 24px;
   font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.text-wrapper h1:hover {
+  color: var(--cyan);
 }
 
 .text-wrapper p {
@@ -63,14 +70,38 @@ main {
 }
 
 .image-wrapper {
+  position: relative;
   display: flex;
   justify-content: center;
+  width: fit-content;
+  height: auto;
+  border-radius: 12px;
+  background: var(--cyan);
+  cursor: pointer;
+}
+
+.image-active {
+  position: absolute;
+  bottom: 40%;
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+}
+
+.image-wrapper img:hover ~ .image-active,
+.image-active:hover {
+  display: block;
+  opacity: 100;
+}
+
+.image-wrapper:hover * {
+  opacity: 0.5;
 }
 
 .image-wrapper img {
   border-radius: 10px;
   width: 100%;
   height: auto;
+  transition: all 0.2s ease-in-out;
 }
 
 .bottom-text-wrapper {
@@ -93,7 +124,7 @@ main {
 }
 
 .bottom-left span {
-  color: rgb(0, 255, 248);
+  color: var(--cyan);
   margin-left: 8px;
 }
 
@@ -107,16 +138,22 @@ main {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  cursor: pointer;
+}
+
+.card-footer:hover b {
+  color: var(--cyan);
 }
 
 .card-footer span {
   margin-left: 20px;
-  color: var(--main-text);
+  color: var(--soft-blue);
 }
 
 .card-footer b {
   color: var(--white);
   opacity: 0.8;
+  transition: all 0.3s ease-in-out;
 }
 
 .card-footer img {
@@ -130,12 +167,17 @@ main {
   font-size: 14px;
   text-align: center;
   margin-top: 18px;
-  color: var(--main-text);
+  color: var(--soft-blue);
   padding-inline: 24px;
 }
 
 .attribution a {
   color: hsl(228, 57%, 71%);
+  transition: all 0.2s ease-in-out;
+}
+
+.attribution a:hover {
+  color: var(--cyan);
 }
 
 @media screen and (max-width: 350px) {
